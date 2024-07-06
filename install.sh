@@ -5,7 +5,7 @@ ln -s -f $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
 cp $HOME/.tmux/.tmux.conf.local $HOME/
 
 ## Apply customizations
-echo "export EDITOR=vim" >> .zshrc
+echo "export EDITOR=vim" >> $HOME/.zshrc
 sed -i -e '/tmux_conf_new_session_prompt/s/false/true/' \
        -e '/tmux_conf_new_session_retain_current_path/s/false/true/' \
        -e '/tmux_conf_new_window_retain_current_path/s/false/true/' \
