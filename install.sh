@@ -1,7 +1,8 @@
 # tmux
 ## Install ohmytmux
-ln -s -f .tmux/.tmux.conf $HOME/.tmux.conf
-cp .tmux/.tmux.conf.local $HOME/
+git clone https://github.com/gpakosz/.tmux $HOME/.tmux
+ln -s -f $HOME/.tmux/.tmux.conf $HOME/.tmux.conf
+cp $HOME/.tmux/.tmux.conf.local $HOME/
 
 ## Apply customizations
 echo "export EDITOR=vim" >> .zshrc
@@ -16,5 +17,6 @@ sed -i -e '/tmux_conf_new_session_prompt/s/false/true/' \
        $HOME/.tmux.conf.local
 
 # vim 
-cp vimrc $HOME/.vim_runtime
-/bin/bash ~/.vim_runtime/install_awesome_vimrc.sh
+## Install vimrc
+git clone https://github.com/amix/vimrc $HOME/.vim_runtime
+/bin/bash $HOME/.vim_runtime/install_awesome_vimrc.sh
