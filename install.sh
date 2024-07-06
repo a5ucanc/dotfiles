@@ -1,3 +1,18 @@
+# zsh
+echo "# user preferences" >> $HOME/.zshrc
+
+## history
+sed -i -e '/HISTFILE/s/.zsh_history/.cache\/zsh\/zsh_history/' \
+       -e '/HISTSIZE/s/1000/50000/' \
+       -e '/SAVEHIST/s/2000/$HISTSIZE/' \
+       $HOME/.zshrc
+
+## aliases
+cat << EOL >> $HOME/.zshrc
+alias bloodhound='sudo neo4j start && bloodhound && sudo neo4j stop'
+EOL
+
+
 # tmux
 ## Install ohmytmux
 git clone https://github.com/gpakosz/.tmux $HOME/.tmux
