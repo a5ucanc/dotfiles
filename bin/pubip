@@ -1,0 +1,2 @@
+pubip=$(curl https://api.ipify.org?format=json -s | jq -r '.ip')
+echo "Your public ip is: \033[31m\033[1m$pubip\033[22m\033[0m"
