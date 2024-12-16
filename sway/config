@@ -4,9 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-
 exec wl-paste --watch cliphist store
-
 
 ### Variables
 #
@@ -40,7 +38,7 @@ output HDMI-A-1 pos 1920 0 res 1920x1080
 # Example configuration:
 #
 exec swayidle -w \
-	timeout 300 'swaylock -f -c 000000' \
+	timeout 600 'swaylock -f -c 000000' \
         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
         before-sleep 'swaylock -f -c 000000'
 #
@@ -211,7 +209,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    bindsym Print exec slurpshot
 #
 # Status Bar:
 #
@@ -233,7 +231,7 @@ bar {
 # Custom
 #
 # clipboard manager key bind
-bindsym $mod+Mod1+v exec cliphist list | wmenu -b -l 5 | cliphist decode | wl-copy
+bindsym $mod+Mod1+v exec cliphist list | wmenu -b -l 5 -p "Clipboard History:" | cliphist decode | wl-copy
 
 # numlock on startup
 input type:keyboard xkb_numlock enabled
@@ -249,6 +247,8 @@ output HDMI-A-1 bg /usr/share/backgrounds/space/pexels-1.jpg fill
 # font
 font 'FiraCode Nerd Font' Light 8
 
+# workspaces
+bindsym $mod+Mod1+w exec /bin/bash ~/.config/sway/workspaces.sh
 
 ##########################
 
